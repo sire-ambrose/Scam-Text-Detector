@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-st.write("# Fraud App")
+st.write("# Scam App")
 
 file=pd.read_csv('fraud_csv1.txt', encoding='latin', error_bad_lines=False)
 
