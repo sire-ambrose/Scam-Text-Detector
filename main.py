@@ -5,6 +5,7 @@ from  sklearn.model_selection import train_test_split
 import re
 import numpy as np
 import pandas as pd
+import sqlite3
 import streamlit as st
 st.write("# Scam App")
 
@@ -107,6 +108,10 @@ if st.button('Submit'):
         else :
             st.write('## NOT SCAM')
             st.write('The text is '+str(round(NB.predict_proba(se)[0][0]*100))+'%'+' not scam')
+db=sqlite3.Connection(database='test.db')
+db.execute('INSERT INTO dataset (message, label)'+' VALUES'+str((text, 'nan')))
+db.commit()
+db.close()
 st.write('\n\n\n\n\n\n')
 st.write('### Contact Developer : ')
 st.write('[Facebook](https://www.facebook.com/profile.php?id=100005064735483)')
